@@ -9,8 +9,9 @@
       <div class="flex-grow overflow-y-auto"></div>
       <div class="flex-none mx-auto">
         <a
-          href="https://github.com"
+          href="https://github.com/ethylon/FAQwind"
           class="flex items-center space-x-1"
+          target="_blank"
           actions
         >
           <span class="text-sm font-semibold">GitHub</span>
