@@ -4,7 +4,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   purge: [
-    './index.html', './src/**/*.vue'
+    './safelist.txt', './index.html', './src/**/*.vue',
   ],
   theme: {
     container: {
@@ -15,17 +15,17 @@ module.exports = {
       padding: {
         DEFAULT: '3rem',
         sm: '4rem',
-        md: '6rem'
-      }
+        md: '6rem',
+      },
     },
     extend: {
       fontFamily: {
-        sans: ['Raleway', ...defaultTheme.fontFamily.sans],
-        mono: ['Cascadia Code', ...defaultTheme.fontFamily.mono]
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        mono: ['Cascadia Code', ...defaultTheme.fontFamily.mono],
       },
       colors: {
         tailwind: '#06B6D4',
-        neutral: colors.blueGray
+        neutral: colors.blueGray,
       },
       typography: theme => ({
         DEFAULT: {
@@ -34,19 +34,22 @@ module.exports = {
             h2: {
               color: 'inherit',
               a: {
-                '&:hover': { textDecoration: 'none' }
-              }
+                '&:hover': { textDecoration: 'none' },
+              },
             },
             strong: { color: 'inherit' },
-            code: { color: 'inherit' },
-            a: {
-              color: theme('colors.tailwind'),
-              textDecoration: 'none',
-              '&:hover': { textDecoration: 'underline' }
+            code: { 
+              color: 'inherit',
+              whitespace: 'no-wrap'
             },
-          }
-        }
-      })
+            a: {
+              'color': theme('colors.tailwind'),
+              'textDecoration': 'none',
+              '&:hover': { textDecoration: 'underline' },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
@@ -54,24 +57,24 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    plugin(function ({ addBase, theme }) {
+    plugin(({ addBase, theme }) => {
       addBase({
         '*[actions]': {
-          color: theme('colors.neutral.400'),
-          cursor: theme('cursor.pointer'),
-          '&:hover': { color: theme('colors.neutral.500') }
+          'color': theme('colors.neutral.400'),
+          'cursor': theme('cursor.pointer'),
+          '&:hover': { color: theme('colors.neutral.500') },
         },
         '*::-webkit-scrollbar': {
           width: theme('width.2'),
-          height: theme('height.2')
+          height: theme('height.2'),
         },
         '*::-webkit-scrollbar-track': {
           backgroundColor: theme('colors.neutral.300'),
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: theme('colors.neutral.400'),
-          borderRadius: theme('borderRadius.DEFAULT')
-        }
+          borderRadius: theme('borderRadius.DEFAULT'),
+        },
       })
     }),
   ],

@@ -1,22 +1,21 @@
 <template>
-  <div class="w-3/4 pt-6 text-4xl font-semibold pb-11 leading-tighter sm:text-5xl md:text-6xl">
+  <div class="w-3/4 pb-24 text-4xl font-bold font-title">
     Your favorite place to get answers about
     <a href="https://tailwindcss.com" target="_blank">
-      <img src="../assets/tailwindcss-logotype.svg" class="inline-block w-auto h-9 sm:h-10 md:h-11" />
+      <img src="../assets/tailwindcss-logotype.svg" class="inline-block w-auto h-9" />
     </a>
   </div>
   <div class="flex flex-col justify-between xl:flex-row xl:items-center">
     <article class="prose">
-      <Chapter id="what-is-tailwind-css" msg="What is Tailwind CSS" />
+      <Title id="what-is-tailwind-css" msg="What is Tailwind CSS" />
       <p>
         <ExternalLink link="https://tailwindcss.com" msg="Tailwind CSS" />is a
         <strong>utility-first</strong> CSS framework that allows you to
         <i>&ldquo;quickly build any design, directly in your markup&rdquo;</i>.
         Utility-first means it doesn't provide components CSS classes like
-        <code>.btn</code> or
-        <code>.navbar</code>, but classes like
-        <code class="whitespace-nowrap">.mt-2</code> or
-        <code class="whitespace-nowrap">.pr-3</code> instead.
+        <code>.btn</code> that would contain all the CSS attributes to build a button, but utility classes like
+        <code>.mt-2</code> that allows you to apply
+        <code>margin-top: 0.5rem</code> on an element.
       </p>
       <p>
         Tailwind CSS was created by
@@ -77,7 +76,7 @@
     </div>
   </div>
   <article class="mt-8 prose">
-    <Chapter id="what-is-this-place" msg="What is this place" />
+    <Title id="what-is-this-place" msg="What is this place" />
     <p>
       <span class="text-lg">
         <Logo />
